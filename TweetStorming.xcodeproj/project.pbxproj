@@ -383,7 +383,6 @@
 				DEVELOPMENT_TEAM = LE49W5GLAX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/TweetStorming",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TweetStorming/Info.plist;
@@ -401,7 +400,6 @@
 				DEVELOPMENT_TEAM = LE49W5GLAX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/TweetStorming",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TweetStorming/Info.plist;
