@@ -13,6 +13,12 @@
 		443A2A281DC9A23800A8B335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443A2A271DC9A23800A8B335 /* Assets.xcassets */; };
 		443A2A2B1DC9A23800A8B335 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443A2A291DC9A23800A8B335 /* LaunchScreen.storyboard */; };
 		443A2A361DC9A23800A8B335 /* TweetStormingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A2A351DC9A23800A8B335 /* TweetStormingTests.swift */; };
+		443A2A451DC9A99700A8B335 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443A2A411DC9A99700A8B335 /* Fabric.framework */; };
+		443A2A461DC9A99700A8B335 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443A2A421DC9A99700A8B335 /* TwitterKit.framework */; };
+		443A2A471DC9A99700A8B335 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 443A2A431DC9A99700A8B335 /* TwitterKitResources.bundle */; };
+		443A2A481DC9A99700A8B335 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443A2A441DC9A99700A8B335 /* TwitterCore.framework */; };
+		443A2A4A1DCA8A6A00A8B335 /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A2A491DCA8A6A00A8B335 /* TweetTableViewController.swift */; };
+		443A2A4C1DCA8D7800A8B335 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A2A4B1DCA8D7800A8B335 /* TweetTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,12 @@
 		443A2A311DC9A23800A8B335 /* TweetStormingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TweetStormingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		443A2A351DC9A23800A8B335 /* TweetStormingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetStormingTests.swift; sourceTree = "<group>"; };
 		443A2A371DC9A23800A8B335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		443A2A411DC9A99700A8B335 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		443A2A421DC9A99700A8B335 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		443A2A431DC9A99700A8B335 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
+		443A2A441DC9A99700A8B335 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		443A2A491DCA8A6A00A8B335 /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
+		443A2A4B1DCA8D7800A8B335 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +55,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				443A2A451DC9A99700A8B335 /* Fabric.framework in Frameworks */,
+				443A2A481DC9A99700A8B335 /* TwitterCore.framework in Frameworks */,
+				443A2A461DC9A99700A8B335 /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,12 +92,18 @@
 		443A2A1F1DC9A23800A8B335 /* TweetStorming */ = {
 			isa = PBXGroup;
 			children = (
+				443A2A411DC9A99700A8B335 /* Fabric.framework */,
+				443A2A421DC9A99700A8B335 /* TwitterKit.framework */,
+				443A2A431DC9A99700A8B335 /* TwitterKitResources.bundle */,
+				443A2A441DC9A99700A8B335 /* TwitterCore.framework */,
 				443A2A201DC9A23800A8B335 /* AppDelegate.swift */,
 				443A2A221DC9A23800A8B335 /* ViewController.swift */,
 				443A2A241DC9A23800A8B335 /* Main.storyboard */,
 				443A2A271DC9A23800A8B335 /* Assets.xcassets */,
 				443A2A291DC9A23800A8B335 /* LaunchScreen.storyboard */,
 				443A2A2C1DC9A23800A8B335 /* Info.plist */,
+				443A2A491DCA8A6A00A8B335 /* TweetTableViewController.swift */,
+				443A2A4B1DCA8D7800A8B335 /* TweetTableViewCell.swift */,
 			);
 			path = TweetStorming;
 			sourceTree = "<group>";
@@ -106,6 +127,7 @@
 				443A2A191DC9A23800A8B335 /* Sources */,
 				443A2A1A1DC9A23800A8B335 /* Frameworks */,
 				443A2A1B1DC9A23800A8B335 /* Resources */,
+				443A2A401DC9A96800A8B335 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -181,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				443A2A471DC9A99700A8B335 /* TwitterKitResources.bundle in Resources */,
 				443A2A2B1DC9A23800A8B335 /* LaunchScreen.storyboard in Resources */,
 				443A2A281DC9A23800A8B335 /* Assets.xcassets in Resources */,
 				443A2A261DC9A23800A8B335 /* Main.storyboard in Resources */,
@@ -196,13 +219,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		443A2A401DC9A96800A8B335 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 188c0207e3f7e2635276554b660dc0d9958066b8 c6b513e0567e466db20644a46cc7c4abbb184e2aff5fed5e94933bf9b6ee8aad";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		443A2A191DC9A23800A8B335 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				443A2A4A1DCA8A6A00A8B335 /* TweetTableViewController.swift in Sources */,
 				443A2A231DC9A23800A8B335 /* ViewController.swift in Sources */,
 				443A2A211DC9A23800A8B335 /* AppDelegate.swift in Sources */,
+				443A2A4C1DCA8D7800A8B335 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +381,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LE49W5GLAX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TweetStorming",
+				);
 				INFOPLIST_FILE = TweetStorming/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Learning.TweetStorming;
@@ -353,6 +398,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LE49W5GLAX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TweetStorming",
+				);
 				INFOPLIST_FILE = TweetStorming/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Learning.TweetStorming;
