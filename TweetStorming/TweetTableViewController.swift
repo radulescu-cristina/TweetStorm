@@ -59,7 +59,7 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         var footerView : UIView?
         footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height:50))
-        let button = UIButton(
+        //let button = UIButton(
         
         return footerView
     }
