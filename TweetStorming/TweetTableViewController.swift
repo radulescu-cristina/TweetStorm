@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kTweetMaxLength = 12
+let kTweetMaxLength = 140
 
 class TweetTableViewController: UITableViewController, UITextViewDelegate {
     
@@ -16,10 +16,10 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //self.automaticallyAdjustsScrollViewInsets = false
         self.tableView.delegate = self
-        
+        self.tableView.backgroundColor = UIColor(colorLiteralRed: 0.1, green: 0.1, blue: 0.1, alpha: 1)
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -51,21 +51,9 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
 
         // Configure the cell...
         cell.tweetTextView.delegate = self
+        cell.tweetTextView.text = "\(tweets.count+1)/ "
 
         return cell
-    }
- 
-    
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var footerView : UIView?
-        footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height:50))
-        //let button = UIButton(
-        
-        return footerView
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40.0
     }
 
     /*
@@ -103,26 +91,48 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
     }
     */
     
-    
+
     // MARK: UITextViewDelegate protocolfew
-    
+
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        var tweet: String = textView.text
-        if tweet.characters.count + (text.characters.count - range.length) > kTweetMaxLength {
-            
+        if textView.text.characters.count + (text.characters.count - range.length) > kTweetMaxLength {
             //Hide keyboard
             self.resignFirstResponder()
-            
-            //"\(tweets.count+1)/"
-            /*let newIndexPath = IndexPath(row: tweets.count, section: 0)
-            tweets.append(tweet)
-            tableView.insertRows(at: [newIndexPath], with: .bottom)*/
             return false
         }
         return true
     }
 
+    func textViewDidChange(_ textView: UITextView) {
+        let indexPath = self.indexPathForTextView(textView: textView)
+        if let currentTweetText = textView.text {
+            tweets[indexPath.row] = currentTweetText
+        }
+    }
 
+    private func indexPathForTextView(textView: UITextView) -> IndexPath {
+        let cell = textView.superview?.superview as! TweetTableViewCell
+        return self.tableView.indexPath(for: cell)!
+    }
+
+
+    //MARK: Actions
+
+    @IBAction func deleteTweet(_ sender: UIButton) {
+        let cell = sender.superview?.superview as! TweetTableViewCell
+        if let index = tableView.indexPath(for: cell) {
+            print("Delete tweet")
+            tweets.remove(at: index.row)
+            tableView.deleteRows(at: [index], with: .fade)
+
+        }
+    }
+    @IBAction func addTweet(_ sender: UIButton) {
+        print ("Add new tweet")
+        let newIndexPath = IndexPath(row: tweets.count, section: 0)
+        tweets.append("")
+        tableView.insertRows(at: [newIndexPath], with: .bottom)
+    }
     /*
     // MARK: - Navigation
 
