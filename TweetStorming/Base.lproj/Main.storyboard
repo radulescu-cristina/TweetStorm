@@ -32,7 +32,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="YNi-3Y-9X0"/>
-                                    <constraint firstAttribute="width" constant="280" id="ugr-Ev-b2t"/>
+                                    <constraint firstAttribute="width" constant="200" id="ugr-Ev-b2t"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -42,7 +42,6 @@
                             <constraint firstItem="gsP-qe-oAx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9d2-nq-9l9"/>
                             <constraint firstItem="Pz6-iW-6SC" firstAttribute="centerX" secondItem="gsP-qe-oAx" secondAttribute="centerX" id="BKf-Gw-L8T"/>
                             <constraint firstItem="Pz6-iW-6SC" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Sr2-v9-3W9"/>
-                            <constraint firstItem="Pz6-iW-6SC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hfN-UC-7cs"/>
                             <constraint firstItem="gsP-qe-oAx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vjT-Ub-hN5"/>
                         </constraints>
                     </view>
@@ -114,7 +113,7 @@
         <scene sceneID="56d-uF-KQI">
             <objects>
                 <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="tly-dL-vot" customClass="TweetTableViewController" customModule="TweetStorming" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" id="0vc-Fo-iRM">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" id="0vc-Fo-iRM">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -142,7 +141,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetTableViewCell" rowHeight="110" id="l64-sm-jTY" customClass="TweetTableViewCell" customModule="TweetStorming" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableViewCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="tweetTableViewCell" rowHeight="110" id="l64-sm-jTY" customClass="TweetTableViewCell" customModule="TweetStorming" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="768" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l64-sm-jTY" id="34g-wn-MTC">
@@ -151,8 +150,8 @@
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottomLeft" keyboardDismissMode="onDrag" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="hEG-B4-BwP">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                            <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                         </textView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2Z-PC-7J8">
@@ -176,6 +175,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="tweetTextView" destination="hEG-B4-BwP" id="PNu-yW-zSs"/>
                                 </connections>

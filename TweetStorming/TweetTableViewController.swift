@@ -17,8 +17,7 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.automaticallyAdjustsScrollViewInsets = false
-        //self.tableView.delegate = self
-        //self.tableView.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
+        self.tableView.delegate = self
         self.tableView.backgroundColor = UIColor(colorLiteralRed: 44/255, green: 62/255, blue: 80/255, alpha: 1)
         tweets.append("")
 
@@ -52,7 +51,6 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
         // Configure the cell...
         cell.tweetTextView.delegate = self
         cell.tweetTextView.text = tweets.count == 0 ? "1/ " : "\(tweets.count)/ "
-
 
         return cell
     }
@@ -95,7 +93,15 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
 
     // MARK: UITextViewDelegate protocol
 
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.backgroundColor = UIColor(colorLiteralRed: 64/255, green: 82/255, blue: 100/255, alpha: 1)
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.backgroundColor = UIColor.clear
+    }
+
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool { 
         let tweetSize = textView.text.characters.count
         updateTweetSizeLabel(tweetSize);
 

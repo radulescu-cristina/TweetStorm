@@ -16,6 +16,7 @@ class TweetTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.updateContentInsetForTextView()
+        tweetTextView.textContainer.lineFragmentPadding = 20
     }
 
     func updateContentInsetForTextView() {

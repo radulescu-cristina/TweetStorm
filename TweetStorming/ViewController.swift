@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var landingView: UIView!
     @IBOutlet weak var tweetButtonView: UIView!
 
+    var logInButton: TWTRLogInButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +26,7 @@ class ViewController: UIViewController {
         view.layer.insertSublayer(gradient, at: 0)*/
 
         // Do any additional setup after loading the view, typically from a nib.
-        let logInButton = TWTRLogInButton { (session, error) in
+        logInButton = TWTRLogInButton { (session, error) in
             if let unwrappedSession = session {
                 print("signed in as \(unwrappedSession.userName)");
                 self.didLoginWithTwitter(username: unwrappedSession.userName)
@@ -37,6 +39,11 @@ class ViewController: UIViewController {
         logInButton.layer.borderWidth = 1
         //logInButton.center = tweetButtonView.center
         tweetButtonView.addSubview(logInButton)
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        logInButton?.frame = tweetButtonView.bounds
     }
 
     private func didLoginWithTwitter(username: String) {
