@@ -11,6 +11,7 @@ import UIKit
 class TweetViewController: UIViewController {
     
     var tweetTableVC: TweetTableViewController?
+    @IBOutlet var tweetSizeLabel: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()

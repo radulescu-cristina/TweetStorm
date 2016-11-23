@@ -17,19 +17,19 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Storm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pz6-iW-6SC">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="89" id="0s3-Hc-0Qh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="34"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsP-qe-oAx">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="YNi-3Y-9X0"/>
                                     <constraint firstAttribute="width" constant="280" id="ugr-Ev-b2t"/>
@@ -47,6 +47,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="landingView" destination="8bC-Xf-vdC" id="1Ea-mu-efI"/>
                         <outlet property="tweetButtonView" destination="gsP-qe-oAx" id="yCV-wV-GDo"/>
                     </connections>
                 </viewController>
@@ -63,57 +64,64 @@
                         <viewControllerLayoutGuide type="bottom" id="ssl-Nj-0i4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PSs-jE-ds3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffQ-td-F4P">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="585" id="gZD-NE-qjQ"/>
-                                </constraints>
                                 <connections>
                                     <segue destination="tly-dL-vot" kind="embed" id="8nS-jv-kM4"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPM-Nf-fUf">
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Jwa-5f-fVK"/>
-                                    <constraint firstAttribute="width" constant="42" id="hgv-EC-JEm"/>
+                                    <constraint firstAttribute="height" constant="60" id="GJC-2n-scP"/>
                                 </constraints>
-                                <state key="normal" title="Tweet"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                <state key="normal" title="Tweet">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="postOnTwitter:" destination="0Zl-fG-w4X" eventType="touchUpInside" id="EeU-76-Vek"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WPM-Nf-fUf" firstAttribute="top" secondItem="ffQ-td-F4P" secondAttribute="bottom" multiplier="1.05" id="6jd-OV-fTG"/>
-                            <constraint firstItem="ffQ-td-F4P" firstAttribute="centerX" secondItem="WPM-Nf-fUf" secondAttribute="centerX" id="8s4-co-i91"/>
+                            <constraint firstItem="WPM-Nf-fUf" firstAttribute="top" secondItem="ffQ-td-F4P" secondAttribute="bottom" id="05K-j1-LZP"/>
+                            <constraint firstItem="ssl-Nj-0i4" firstAttribute="top" secondItem="WPM-Nf-fUf" secondAttribute="bottom" id="1G7-c4-Nma"/>
                             <constraint firstItem="WPM-Nf-fUf" firstAttribute="centerX" secondItem="PSs-jE-ds3" secondAttribute="centerX" id="Hdp-mm-Icp"/>
-                            <constraint firstAttribute="bottom" secondItem="WPM-Nf-fUf" secondAttribute="bottom" constant="20" symbolic="YES" id="U9x-LU-DYj"/>
+                            <constraint firstItem="ffQ-td-F4P" firstAttribute="top" secondItem="qpk-Gv-x04" secondAttribute="bottom" id="SjO-eB-H09"/>
                             <constraint firstItem="ffQ-td-F4P" firstAttribute="centerX" secondItem="PSs-jE-ds3" secondAttribute="centerX" id="cX3-4h-ucy"/>
+                            <constraint firstItem="WPM-Nf-fUf" firstAttribute="width" secondItem="ffQ-td-F4P" secondAttribute="width" id="tKN-WQ-QMd"/>
                             <constraint firstItem="ffQ-td-F4P" firstAttribute="width" secondItem="PSs-jE-ds3" secondAttribute="width" id="yXn-tW-s5p"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="TweetStorm" id="id1-cd-tGo"/>
+                    <navigationItem key="navigationItem" title="TweetStorm" id="id1-cd-tGo">
+                        <barButtonItem key="rightBarButtonItem" title="0/140" id="9hr-gC-t8q">
+                            <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tweetSizeLabel" destination="9hr-gC-t8q" id="ih5-8j-SY2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAJ-CD-fJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1650.4000000000001" y="144.3778110944528"/>
+            <point key="canvasLocation" x="1650" y="143.75"/>
         </scene>
         <!--Tweet Table View Controller-->
         <scene sceneID="56d-uF-KQI">
             <objects>
-                <tableViewController id="tly-dL-vot" customClass="TweetTableViewController" customModule="TweetStorming" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" id="0vc-Fo-iRM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="585"/>
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="tly-dL-vot" customClass="TweetTableViewController" customModule="TweetStorming" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" id="0vc-Fo-iRM">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="oK8-f8-Lb3">
-                            <rect key="frame" x="0.0" y="138" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="138" width="768" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2q-4c-FuA">
@@ -135,13 +143,13 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetTableViewCell" rowHeight="110" id="l64-sm-jTY" customClass="TweetTableViewCell" customModule="TweetStorming" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="110"/>
+                                <rect key="frame" x="0.0" y="28" width="768" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l64-sm-jTY" id="34g-wn-MTC">
-                                    <frame key="frameInset" width="320" height="109"/>
+                                    <frame key="frameInset" width="768" height="109"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEG-B4-BwP">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottomLeft" keyboardDismissMode="onDrag" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="hEG-B4-BwP">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
@@ -178,6 +186,7 @@
                             <outlet property="delegate" destination="tly-dL-vot" id="Ko8-wt-waG"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5SL-Xk-k35" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

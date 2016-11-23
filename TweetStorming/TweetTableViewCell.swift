@@ -13,15 +13,14 @@ class TweetTableViewCell: UITableViewCell {
     //MARK: Properties
     @IBOutlet weak var tweetTextView: UITextView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.updateContentInsetForTextView()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func updateContentInsetForTextView() {
+        var topCorrect = (self.bounds.size.height - tweetTextView.contentSize.height * tweetTextView.zoomScale) / 2
+        topCorrect = topCorrect < 0.0 ? 0.0 : topCorrect;
+        tweetTextView.contentInset.top = topCorrect
     }
-
 }

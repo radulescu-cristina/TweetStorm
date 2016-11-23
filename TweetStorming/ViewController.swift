@@ -11,10 +11,18 @@ import TwitterKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var landingView: UIView!
     @IBOutlet weak var tweetButtonView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        view.backgroundColor = UIColor(colorLiteralRed: 44/255, green: 62/255, blue: 80/255, alpha: 1)
+        /*let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [UIColor(colorLiteralRed: 52/255, green: 73/255, blue: 94/255, alpha: 1).cgColor]
+        view.layer.insertSublayer(gradient, at: 0)*/
+
         // Do any additional setup after loading the view, typically from a nib.
         let logInButton = TWTRLogInButton { (session, error) in
             if let unwrappedSession = session {
@@ -25,6 +33,8 @@ class ViewController: UIViewController {
             }
         }
 
+        logInButton.layer.cornerRadius = 5
+        logInButton.layer.borderWidth = 1
         //logInButton.center = tweetButtonView.center
         tweetButtonView.addSubview(logInButton)
     }

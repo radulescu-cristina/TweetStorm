@@ -17,8 +17,10 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.automaticallyAdjustsScrollViewInsets = false
-        self.tableView.delegate = self
-        self.tableView.backgroundColor = UIColor(colorLiteralRed: 0.1, green: 0.1, blue: 0.1, alpha: 1)
+        //self.tableView.delegate = self
+        //self.tableView.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
+        self.tableView.backgroundColor = UIColor(colorLiteralRed: 44/255, green: 62/255, blue: 80/255, alpha: 1)
+        tweets.append("")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,7 +31,6 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
         // Dispose of any resources that can be recreated.
     }
 
@@ -41,8 +42,7 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return tweets.count + 1
+        return tweets.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +51,8 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
 
         // Configure the cell...
         cell.tweetTextView.delegate = self
-        cell.tweetTextView.text = "\(tweets.count+1)/ "
+        cell.tweetTextView.text = tweets.count == 0 ? "1/ " : "\(tweets.count)/ "
+
 
         return cell
     }
@@ -92,10 +93,19 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
     */
     
 
-    // MARK: UITextViewDelegate protocolfew
+    // MARK: UITextViewDelegate protocol
+
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        let tweetSize = textView.text.characters.count
+        updateTweetSizeLabel(tweetSize);
+
+        return true
+    }
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if textView.text.characters.count + (text.characters.count - range.length) > kTweetMaxLength {
+        let tweetSize = textView.text.characters.count + (text.characters.count - range.length)
+        updateTweetSizeLabel(tweetSize);
+        if tweetSize >= kTweetMaxLength {
             //Hide keyboard
             self.resignFirstResponder()
             return false
@@ -108,13 +118,18 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
         if let currentTweetText = textView.text {
             tweets[indexPath.row] = currentTweetText
         }
+        let cell = self.cellForTextView(textView)
+        cell.updateContentInsetForTextView()
     }
 
     private func indexPathForTextView(textView: UITextView) -> IndexPath {
-        let cell = textView.superview?.superview as! TweetTableViewCell
+        let cell = self.cellForTextView(textView)
         return self.tableView.indexPath(for: cell)!
     }
 
+    private func cellForTextView(_ textView: UITextView) -> TweetTableViewCell {
+        return textView.superview?.superview as! TweetTableViewCell;
+    }
 
     //MARK: Actions
 
@@ -142,5 +157,12 @@ class TweetTableViewController: UITableViewController, UITextViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+
+
+    // MARK: private
+    private func updateTweetSizeLabel(_ tweetSize: Int) {
+        let tweetViewController = self.parent as! TweetViewController
+        tweetViewController.tweetSizeLabel.title = "\(tweetSize)/140"
+    }
 
 }
